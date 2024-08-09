@@ -59,10 +59,11 @@ html {
 
 .hero__foreground {
     z-index: 2;
-    --duration: 2.5s;
 }
 
-.hero__cloud.front {
+.hero__cloud.front,
+.hero__foreground,
+.hero button {
     --duration: 2s;
 }
 
@@ -111,7 +112,7 @@ button.button__outline {
 }
 
 button.alt {
-    color: var(--darker-primary)!important;
+    color: var(--darker-primary) !important;
     border: 1px solid var(--yellow);
 }
 
@@ -160,7 +161,10 @@ main section {
     font-weight: 600;
 }
 
-.perks__card-container {
+.perks__card-container,
+.top-programs__card-container,
+.sharing-person__card-container,
+.footer__quick-links {
     display: grid;
     gap: 1em;
     grid-template-columns: repeat(2, 1fr);
@@ -219,9 +223,9 @@ main section {
     background-color: var(--fainted-primary);
 }
 
-.top-programs__card-container {
-    display: grid;
-    gap: 1em;
+.top-programs__card-container,
+.sharing-person__card-container,
+.footer__quick-links {
     grid-template-columns: repeat(3, 1fr);
 }
 
@@ -247,8 +251,15 @@ main section {
     font-weight: 600;
 }
 
-.tags__degree {background-color: var(--yellow); color: var(--primary);}
-.tags__funding {background-color: var(--orange); color: var(--white);}
+.tags__degree {
+    background-color: var(--yellow);
+    color: var(--primary);
+}
+
+.tags__funding {
+    background-color: var(--orange);
+    color: var(--white);
+}
 
 li {
     list-style: none;
@@ -258,7 +269,8 @@ li {
     font-size: 2em;
 }
 
-.card__program-description {
+.card__program-description,
+.card__university {
     color: gray;
 }
 
@@ -296,12 +308,6 @@ li {
     border-radius: 8px;
 }
 
-.sharing-person__card-container {
-    display: grid;
-    gap: 1em;
-    grid-template-columns: repeat(3, 1fr);
-}
-
 .sharing-person__card {
     display: flex;
     flex-direction: column;
@@ -325,13 +331,9 @@ li {
     font-size: 1.5em;
 }
 
-.card__university {
-    color: gray;
-}
-
 .card__feedback-prev {
     -webkit-text-fill-color: transparent;
-    background: linear-gradient(0deg, rgba(246,249,255,1) 0%, rgba(128,128,128,1) 100%);
+    background: linear-gradient(0deg, rgba(246, 249, 255, 1) 0%, rgba(128, 128, 128, 1) 100%);
     background-clip: text;
 }
 
@@ -357,12 +359,6 @@ footer {
 
 .app__logotype {
     width: fit-content;
-}
-
-.footer__quick-links {
-    display: grid;
-    gap: 2em;
-    grid-template-columns: repeat(3, 1fr);
 }
 
 .quick-links__list {
@@ -466,12 +462,43 @@ footer::after {
 }
 
 @media (max-width: 1024px) {
-    .perks__card-container {
+
+    .perks__card-container,
+    .top-programs__card-container,
+    .sharing-person__card-container,
+    .footer__quick-links {
         grid-template-columns: repeat(1, 1fr);
     }
 
-    .perks__card {
-        --duration: 1s!important;
-        width: auto;
+    .footer__content,
+    main section {
+        flex-direction: column;
+        background-image: none;
+        padding: 4em 2em;
+    }
+
+    main section,
+    footer {
+        width: 100%;
+    }
+
+    h1.hero__text, 
+    .header__punchline {
+        font-size: 2em;
+    }
+    
+    #perks .header__punchline br {
+        display: none;
+    }
+    
+    #perks .header__punchline {
+        font-size: 1em;
+    }
+    
+    .perks__card,
+    .top-programs__card,
+    .sharing-person__card {
+        --duration: 1s !important;
+        width: 100%;
     }
 }
